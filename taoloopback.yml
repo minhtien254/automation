@@ -13,11 +13,11 @@
            - { name: 2, ipv4: 10.0.2.2/24 }
            - { name: 3, ipv4: 10.0.3.3/24 }
            
-    - name: Show loopback
+    - name: Show ip
       ios_command:
-            command:
-                - show ip int br
-            register: hienhinh
+        commands:
+          - show ip int br
+      register: show
 
-    - debug: var=hienhinh.stdout_lines
+    - debug: var=show.stdout_lines
     

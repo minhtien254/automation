@@ -12,6 +12,7 @@
            - { name: 1, ipv4: 10.0.1.1/24 }
            - { name: 2, ipv4: 10.0.2.2/24 }
            - { name: 3, ipv4: 10.0.3.3/24 }
+           
     - name: Show loopback
       ios_command:
             command:

@@ -2,22 +2,21 @@
 - name: blackshark tao vlan
   hosts: all
   gather_facts: no
-
   tasks:
-	- name: Creat vlan
-	  ios_vlan:
-		vlan_id: "{{ item.number }}"
-		name: "{{item.name }}"
-		state: present
-	  with_items:
-		- { number: 10, name: "tien_10" }
-		- { number: 11, name: "tien_11" }
-		- { number: 12, name: "tien_12" }
-		- { number: 13, name: "tien_13" }
-	- name: Show vlan
-	  ios_command:
-		command:
-			- show vlan
-		register: show_vlan
-
-	-debug: var=show_vlan.stdout_lines
+  - name: Creat vlan
+     ios_vlan:
+     vlan_id: "{{ item.number }}"
+     name: "{{item.name }}"
+     state: present
+     with_items:
+      - { number: 10, name: "tien_10" }
+      - { number: 11, name: "tien_11" }
+      - { number: 12, name: "tien_12" }
+      - { number: 13, name: "tien_13" }
+ - name: Show vlan
+   ios_command:
+       command:
+         - show vlan
+   register: show_vlan
+   
+ - debug: var=show_vlan.stdout_lines
